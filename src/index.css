@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ASGARD Design System - Paleta vibrante com cores quentes */
+
+@layer base {
+  :root {
+    /* Cores base ASGARD - Fundo branco para contraste */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 10%;
+
+    /* Paleta quente principal */
+    --asgard-yellow: 45 100% 58%;
+    --asgard-orange: 25 95% 55%;
+    --asgard-red: 0 85% 60%;
+    
+    /* Variações da paleta */
+    --asgard-yellow-light: 45 100% 70%;
+    --asgard-orange-light: 25 95% 65%;
+    --asgard-red-light: 0 85% 70%;
+    
+    --asgard-yellow-dark: 45 100% 45%;
+    --asgard-orange-dark: 25 95% 42%;
+    --asgard-red-dark: 0 85% 47%;
+
+    /* Gradientes vibrantes */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--asgard-yellow)), hsl(var(--asgard-orange)), hsl(var(--asgard-red)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--asgard-orange)), hsl(var(--asgard-red)));
+    --gradient-button: linear-gradient(135deg, hsl(var(--asgard-red)), hsl(var(--asgard-red-dark)));
+
+    /* Sistema de cores adaptado */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: var(--asgard-red);
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: var(--asgard-orange);
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: var(--asgard-yellow);
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 95%;
+    --ring: var(--asgard-yellow);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Animações personalizadas */
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Gradientes personalizados ASGARD */
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .bg-gradient-button {
+    background: var(--gradient-button);
+  }
+
+  /* Animações especiais */
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .hover-scale {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+}
+
+@layer utilities {
+  /* Cores ASGARD como utilities */
+  .text-asgard-yellow { color: hsl(var(--asgard-yellow)); }
+  .text-asgard-orange { color: hsl(var(--asgard-orange)); }
+  .text-asgard-red { color: hsl(var(--asgard-red)); }
+  
+  .bg-asgard-yellow { background-color: hsl(var(--asgard-yellow)); }
+  .bg-asgard-orange { background-color: hsl(var(--asgard-orange)); }
+  .bg-asgard-red { background-color: hsl(var(--asgard-red)); }
+}
+
+/* Keyframes para animações */
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px hsl(var(--asgard-yellow) / 0.5);
+  }
+  to {
+    box-shadow: 0 0 40px hsl(var(--asgard-yellow) / 0.8), 0 0 60px hsl(var(--asgard-orange) / 0.4);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
