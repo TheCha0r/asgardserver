@@ -33,7 +33,7 @@ const ContactSection = () => {
                   📧 contato@asgard.minecraft.com
                 </p>
                 <p className="text-gray-800 font-semibold">
-                  🐛 suporte@asgard.minecraft.com
+                  🐛 asgardbrsuporte@gmail.com
                 </p>
               </div>
               <Button 
@@ -60,7 +60,7 @@ const ContactSection = () => {
               </p>
               <div className="space-y-2">
                 <p className="text-gray-800 font-semibold">
-                  📱 +55 (11) 99999-8888
+                  📱 (55) 82 99958-6249 (Felipe)
                 </p>
                 <p className="text-green-600 text-sm flex items-center justify-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
