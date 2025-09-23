@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import logoAsgard from "@/assets/logo-asgard.png";
+import ComprovanteForm from "@/components/ComprovanteForm";
 
 const Header = () => {
   return (
@@ -17,15 +18,14 @@ const Header = () => {
         </div>
         
         <nav className="flex gap-4">
-          <Button variant="outline" size="sm" className="border-asgard-yellow text-asgard-yellow hover:bg-asgard-yellow hover:text-white">
-            Entrar
-          </Button>
           <Button variant="outline" size="sm" className="border-asgard-orange text-asgard-orange hover:bg-asgard-orange hover:text-white">
             Admin
           </Button>
-          <Button variant="asgard" size="sm">
-            📄 Enviar Comprovante
-          </Button>
+          <ComprovanteForm>
+            <Button variant="asgard" size="sm">
+              📄 Enviar Comprovante
+            </Button>
+          </ComprovanteForm>
         </nav>
       </div>
     </header>

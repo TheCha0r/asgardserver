@@ -1,34 +1,22 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import avatarMinecabecudo from "@/assets/avatar-minecabecudo.png";
+import avatarNarnia from "@/assets/avatar-narnia.png";
 
 const TeamSection = () => {
   const teamMembers = [
     {
-      name: "ThorMaster",
-      role: "Fundador & CEO", 
-      description: "Visionário por trás do Asgard, com mais de 5 anos criando experiências únicas no Minecraft.",
-      avatar: "👑",
+      name: "Minecabecudo",
+      role: "Dono do Servidor", 
+      description: "Fundador e dono do servidor Asgard, responsável por toda a visão e direcionamento do projeto.",
+      avatar: avatarMinecabecudo,
       color: "from-asgard-yellow to-asgard-orange"
     },
     {
-      name: "LokiDev",
-      role: "Desenvolvedor Principal",
-      description: "Responsável por todos os plugins exclusivos e sistemas avançados do servidor.",
-      avatar: "⚡", 
+      name: "narnia0987",
+      role: "Staff",
+      description: "Membro da equipe staff, auxiliando na moderação e suporte aos jogadores do servidor.",
+      avatar: avatarNarnia, 
       color: "from-asgard-orange to-asgard-red"
-    },
-    {
-      name: "FrimeSupport", 
-      role: "Gerente de Comunidade",
-      description: "Garantindo que todos os jogadores tenham a melhor experiência possível no Asgard.",
-      avatar: "🛡️",
-      color: "from-asgard-red to-asgard-yellow"
-    },
-    {
-      name: "OdinAdmin",
-      role: "Administrador Senior",
-      description: "Moderação e organização de eventos, mantendo a ordem e diversão no reino.",
-      avatar: "⚔️",
-      color: "from-asgard-yellow to-asgard-red"
     }
   ];
 
@@ -44,33 +32,34 @@ const TeamSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
           {teamMembers.map((member) => (
-            <Card key={member.name} className="bg-white shadow-lg border-2 border-gray-200 hover-scale text-center group overflow-hidden relative hover:border-asgard-yellow/50 transition-all duration-300">
-              {/* Background gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${member.color} opacity-3 group-hover:opacity-5 transition-opacity duration-300`}></div>
+            <Card key={member.name} className="bg-white shadow-lg border-2 border-gray-200 hover-scale text-center group overflow-hidden relative hover:bg-asgard-orange hover:border-asgard-orange transition-all duration-300">
               
               <CardHeader className="relative">
-                {/* Avatar - Cube style */}
+                {/* Avatar - Image style */}
                 <div className="w-20 h-20 mx-auto mb-4 relative">
-                  <div className={`w-full h-full bg-gradient-to-br ${member.color} rounded-lg flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl border-2 border-white`}>
-                    {member.avatar}
-                  </div>
+                  <img 
+                    src={member.avatar} 
+                    alt={`Avatar de ${member.name}`}
+                    className="w-full h-full rounded-lg group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl border-2 border-gray-300 group-hover:border-white pixelated"
+                    style={{ imageRendering: 'pixelated' }}
+                  />
                   
                   {/* Minecraft-style shadow */}
-                  <div className={`absolute top-2 left-2 w-full h-full bg-gradient-to-br ${member.color} rounded-lg -z-10 opacity-20`}></div>
+                  <div className="absolute top-2 left-2 w-full h-full bg-black/20 rounded-lg -z-10 opacity-50"></div>
                 </div>
                 
-                <CardTitle className="text-xl font-bold text-asgard-orange group-hover:text-asgard-red transition-colors duration-300">
+                <CardTitle className="text-xl font-bold text-asgard-orange group-hover:text-white transition-colors duration-300">
                   {member.name}
                 </CardTitle>
-                <CardDescription className="text-asgard-yellow font-semibold">
+                <CardDescription className="text-asgard-yellow font-semibold group-hover:text-gray-100 transition-colors duration-300">
                   {member.role}
                 </CardDescription>
               </CardHeader>
 
               <CardContent className="relative">
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-100 transition-colors duration-300">
                   {member.description}
                 </p>
               </CardContent>
