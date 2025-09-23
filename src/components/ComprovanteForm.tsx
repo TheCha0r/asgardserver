@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface ComprovanteFormProps {
   children: React.ReactNode;
@@ -35,7 +36,7 @@ const ComprovanteForm = ({ children }: ComprovanteFormProps) => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Validação básica
@@ -48,21 +49,61 @@ const ComprovanteForm = ({ children }: ComprovanteFormProps) => {
       return;
     }
 
-    // Aqui seria onde os dados seriam enviados para o backend (Supabase)
-    toast({
-      title: "Comprovante Enviado!",
-      description: "Seu comprovante foi enviado com sucesso. Aguarde a confirmação do pagamento."
-    });
+    try {
+      // Upload do arquivo
+      const fileExt = formData.comprovante.name.split('.').pop();
+      const fileName = `${Date.now()}.${fileExt}`;
+      const filePath = `${fileName}`;
 
-    // Reset form
-    setFormData({
-      nome: "",
-      usuario: "",
-      email: "",
-      whatsapp: "",
-      comprovante: null
-    });
-    setOpen(false);
+      const { error: uploadError } = await supabase.storage
+        .from('comprovantes')
+        .upload(filePath, formData.comprovante);
+
+      if (uploadError) {
+        throw uploadError;
+      }
+
+      // Salvar dados no banco
+      const { error: insertError } = await supabase
+        .from('comprovantes')
+        .insert([
+          {
+            nome: formData.nome,
+            usuario: formData.usuario,
+            email: formData.email,
+            whatsapp: formData.whatsapp,
+            comprovante_url: filePath,
+            comprovante_nome: formData.comprovante.name
+          }
+        ]);
+
+      if (insertError) {
+        throw insertError;
+      }
+
+      toast({
+        title: "Comprovante Enviado!",
+        description: "Seu comprovante foi enviado com sucesso. Aguarde a confirmação do pagamento."
+      });
+
+      // Reset form
+      setFormData({
+        nome: "",
+        usuario: "",
+        email: "",
+        whatsapp: "",
+        comprovante: null
+      });
+      setOpen(false);
+
+    } catch (error) {
+      console.error('Erro ao enviar comprovante:', error);
+      toast({
+        title: "Erro",
+        description: "Erro ao enviar comprovante. Tente novamente.",
+        variant: "destructive"
+      });
+    }
   };
 
   return (

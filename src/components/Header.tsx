@@ -18,7 +18,12 @@ const Header = () => {
         </div>
         
         <nav className="flex gap-4">
-          <Button variant="outline" size="sm" className="border-asgard-orange text-asgard-orange hover:bg-asgard-orange hover:text-white">
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="border-asgard-orange text-asgard-orange hover:bg-asgard-orange hover:text-white"
+            onClick={() => window.location.href = '/admin'}
+          >
             Admin
           </Button>
           <ComprovanteForm>

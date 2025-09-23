@@ -14,7 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      comprovantes: {
+        Row: {
+          comprovante_nome: string | null
+          comprovante_url: string | null
+          created_at: string
+          email: string
+          id: string
+          nome: string
+          status: string | null
+          updated_at: string
+          usuario: string
+          whatsapp: string
+        }
+        Insert: {
+          comprovante_nome?: string | null
+          comprovante_url?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          nome: string
+          status?: string | null
+          updated_at?: string
+          usuario: string
+          whatsapp: string
+        }
+        Update: {
+          comprovante_nome?: string | null
+          comprovante_url?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          nome?: string
+          status?: string | null
+          updated_at?: string
+          usuario?: string
+          whatsapp?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
