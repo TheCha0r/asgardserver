@@ -36,7 +36,7 @@ const FinalCall = () => {
             <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 border-2 border-asgard-yellow/50 hover-scale shadow-lg">
               <div className="text-3xl mb-2">🎯</div>
               <div className="text-asgard-orange font-bold text-lg">IP do Servidor</div>
-              <div className="text-gray-800 text-xl font-mono">asgard.minecraft.com</div>
+              <div className="text-gray-800 text-xl font-mono">asgard.magnohost.com</div>
             </div>
             
             <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 border-2 border-asgard-orange/50 hover-scale shadow-lg">
@@ -63,7 +63,7 @@ const FinalCall = () => {
             </Button>
             
             <p className="text-sm text-gray-600">
-              ✨ Mais de 5.000 jogadores online • 🏆 Eventos diários • 🛡️ Servidor protegido
+              ✨ Mais de 100 jogadores online • 🏆 Eventos diários • 🛡️ Servidor protegido
             </p>
           </div>
 
@@ -71,7 +71,7 @@ const FinalCall = () => {
           <div className="mt-12 flex flex-wrap justify-center items-center gap-8 text-asgard-orange">
             <div className="flex items-center gap-2 bg-white/90 p-3 rounded-lg shadow-md border border-asgard-yellow/30">
               <span className="text-2xl">👥</span>
-              <span className="font-semibold text-gray-800">5.000+ Jogadores</span>
+              <span className="font-semibold text-gray-800">+100 Jogadores</span>
             </div>
             <div className="flex items-center gap-2 bg-white/90 p-3 rounded-lg shadow-md border border-asgard-orange/30">
               <span className="text-2xl">⭐</span>

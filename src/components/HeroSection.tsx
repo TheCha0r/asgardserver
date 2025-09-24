@@ -38,10 +38,10 @@ const HeroSection = () => {
             🎮 Quero jogar agora!
           </Button>
           
-          <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-700 font-semibold">
+            <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-700 font-semibold">
             <div className="flex items-center gap-2">
               <span className="text-asgard-yellow">📍</span>
-              <span>IP: asgard.minecraft.com</span>
+              <span>IP: asgard.magnohost.com</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-asgard-orange">🎯</span>
