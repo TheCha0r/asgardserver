@@ -1,11 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import MercadoPagoPayment from "./MercadoPagoPayment";
 
 const VipPlans = () => {
   const plans = [
     {
       name: "VIP Ferro",
       price: "R$ 17,90",
+      priceValue: 17.90,
       color: "from-gray-400 to-gray-600",
       emoji: "⚒️",
       benefits: [
@@ -20,6 +22,7 @@ const VipPlans = () => {
     {
       name: "VIP Redstone", 
       price: "R$ 27,90",
+      priceValue: 27.90,
       color: "from-asgard-red to-asgard-red-dark",
       emoji: "🔴",
       benefits: [
@@ -34,6 +37,7 @@ const VipPlans = () => {
     {
       name: "VIP Diamante",
       price: "R$ 44,90",
+      priceValue: 44.90,
       color: "from-blue-400 to-blue-600", 
       emoji: "💎",
       benefits: [
@@ -48,6 +52,7 @@ const VipPlans = () => {
     {
       name: "VIP Netherita",
       price: "R$ 67,90",
+      priceValue: 67.90,
       color: "from-asgard-orange to-asgard-yellow",
       emoji: "🛡️",
       benefits: [
@@ -101,15 +106,14 @@ const VipPlans = () => {
               </CardContent>
 
               <CardFooter className="relative">
-                <Button 
-                  variant="vip" 
-                  className="w-full group-hover:shadow-lg transition-all duration-300"
-                  asChild
-                >
-                  <a href={plan.link} target="_blank" rel="noopener noreferrer">
+                <MercadoPagoPayment title={plan.name} price={plan.priceValue}>
+                  <Button 
+                    variant="vip" 
+                    className="w-full group-hover:shadow-lg transition-all duration-300"
+                  >
                     🛒 Comprar Agora
-                  </a>
-                </Button>
+                  </Button>
+                </MercadoPagoPayment>
               </CardFooter>
             </Card>
           ))}

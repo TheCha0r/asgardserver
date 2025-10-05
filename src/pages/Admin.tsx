@@ -16,6 +16,7 @@ const Admin = () => {
   const [password, setPassword] = useState("");
   const [comprovantes, setComprovantes] = useState<any[]>([]);
   const [whatsappContacts, setWhatsappContacts] = useState<any[]>([]);
+  const [pagamentos, setPagamentos] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ const Admin = () => {
     if (isLoggedIn) {
       fetchComprovantes();
       fetchWhatsappContacts();
+      fetchPagamentos();
     }
   }, [isLoggedIn]);
 
@@ -100,6 +102,20 @@ const Admin = () => {
       setWhatsappContacts(data || []);
     } catch (error) {
       console.error('Erro ao buscar contatos WhatsApp:', error);
+    }
+  };
+
+  const fetchPagamentos = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('pagamentos_mercadopago')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      setPagamentos(data || []);
+    } catch (error) {
+      console.error('Erro ao buscar pagamentos:', error);
     }
   };
 
@@ -228,8 +244,9 @@ const Admin = () => {
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="comprovantes" className="w-full">
-              <TabsList className="grid w-full grid-cols-2">
+              <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="comprovantes">Comprovantes</TabsTrigger>
+                <TabsTrigger value="pagamentos">Pagamentos MP</TabsTrigger>
                 <TabsTrigger value="whatsapp">Contatos WhatsApp</TabsTrigger>
               </TabsList>
               
@@ -294,6 +311,60 @@ const Admin = () => {
                   {comprovantes.length === 0 && (
                     <div className="text-center py-8 text-gray-500">
                       Nenhum comprovante enviado ainda.
+                    </div>
+                  )}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="pagamentos" className="mt-6">
+                <div className="overflow-x-auto">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>ID Pagamento</TableHead>
+                        <TableHead>Email</TableHead>
+                        <TableHead>Usuário</TableHead>
+                        <TableHead>Valor</TableHead>
+                        <TableHead>Status</TableHead>
+                        <TableHead>Data</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {pagamentos.map((pagamento) => (
+                        <TableRow key={pagamento.id}>
+                          <TableCell className="font-medium font-mono text-xs">
+                            {pagamento.payment_id}
+                          </TableCell>
+                          <TableCell>{pagamento.payer_email}</TableCell>
+                          <TableCell>{pagamento.external_reference}</TableCell>
+                          <TableCell className="font-bold text-green-600">
+                            R$ {pagamento.transaction_amount?.toFixed(2)}
+                          </TableCell>
+                          <TableCell>
+                            <Badge variant={
+                              pagamento.status === 'approved' ? 'default' : 
+                              pagamento.status === 'pending' ? 'secondary' : 
+                              'destructive'
+                            }>
+                              {pagamento.status}
+                            </Badge>
+                          </TableCell>
+                          <TableCell>
+                            {new Date(pagamento.created_at).toLocaleDateString('pt-BR', {
+                              day: '2-digit',
+                              month: '2-digit',
+                              year: 'numeric',
+                              hour: '2-digit',
+                              minute: '2-digit'
+                            })}
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                  {pagamentos.length === 0 && (
+                    <div className="text-center py-8 text-gray-500">
+                      Nenhum pagamento registrado ainda.
                     </div>
                   )}
                 </div>

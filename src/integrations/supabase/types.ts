@@ -53,6 +53,45 @@ export type Database = {
         }
         Relationships: []
       }
+      pagamentos_mercadopago: {
+        Row: {
+          created_at: string
+          external_reference: string | null
+          id: string
+          payer_email: string | null
+          payment_data: Json | null
+          payment_id: string
+          status: string
+          status_detail: string | null
+          transaction_amount: number | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          external_reference?: string | null
+          id?: string
+          payer_email?: string | null
+          payment_data?: Json | null
+          payment_id: string
+          status: string
+          status_detail?: string | null
+          transaction_amount?: number | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          external_reference?: string | null
+          id?: string
+          payer_email?: string | null
+          payment_data?: Json | null
+          payment_id?: string
+          status?: string
+          status_detail?: string | null
+          transaction_amount?: number | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       whatsapp_contacts: {
         Row: {
           created_at: string
