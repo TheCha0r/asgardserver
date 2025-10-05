@@ -35,8 +35,16 @@ const Admin = () => {
 
   const checkUser = async () => {
     const { data: { session } } = await supabase.auth.getSession();
-    if (session?.user?.email === 'admin@asgard.com') {
-      setIsLoggedIn(true);
+    if (session?.user) {
+      // Check if user has admin role
+      const { data: isAdmin } = await supabase.rpc('has_role', {
+        _user_id: session.user.id,
+        _role: 'admin'
+      });
+      
+      if (isAdmin) {
+        setIsLoggedIn(true);
+      }
     }
   };
 
@@ -50,7 +58,18 @@ const Admin = () => {
         password,
       });
 
-      if (error || data.user?.email !== 'admin@asgard.com') {
+      if (error) {
+        throw new Error('Credenciais inválidas.');
+      }
+
+      // Check if user has admin role
+      const { data: isAdmin } = await supabase.rpc('has_role', {
+        _user_id: data.user.id,
+        _role: 'admin'
+      });
+
+      if (!isAdmin) {
+        await supabase.auth.signOut();
         throw new Error('Acesso negado. Apenas administradores podem acessar.');
       }
 
