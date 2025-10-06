@@ -9,6 +9,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useNavigate } from "react-router-dom";
+import { CalendarIcon } from "lucide-react";
+import { format } from "date-fns";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 const Admin = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -18,6 +22,8 @@ const Admin = () => {
   const [whatsappContacts, setWhatsappContacts] = useState<any[]>([]);
   const [pagamentos, setPagamentos] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+  const [startDate, setStartDate] = useState<Date>();
+  const [endDate, setEndDate] = useState<Date>();
   const { toast } = useToast();
   const navigate = useNavigate();
 
@@ -31,7 +37,7 @@ const Admin = () => {
       fetchWhatsappContacts();
       fetchPagamentos();
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, startDate, endDate]);
 
   const checkUser = async () => {
     const { data: { session } } = await supabase.auth.getSession();
@@ -126,10 +132,21 @@ const Admin = () => {
 
   const fetchPagamentos = async () => {
     try {
-      const { data, error } = await supabase
+      let query = supabase
         .from('pagamentos_mercadopago')
         .select('*')
         .order('created_at', { ascending: false });
+
+      if (startDate) {
+        query = query.gte('created_at', startDate.toISOString());
+      }
+      if (endDate) {
+        const endOfDay = new Date(endDate);
+        endOfDay.setHours(23, 59, 59, 999);
+        query = query.lte('created_at', endOfDay.toISOString());
+      }
+
+      const { data, error } = await query;
 
       if (error) throw error;
       setPagamentos(data || []);
@@ -191,6 +208,19 @@ const Admin = () => {
     };
     return <Badge variant={variants[status] || "secondary"}>{status}</Badge>;
   };
+
+  const getPaymentStats = () => {
+    const approved = pagamentos.filter(p => p.status === 'approved').length;
+    const rejected = pagamentos.filter(p => p.status === 'rejected' || p.status === 'cancelled').length;
+    const pending = pagamentos.filter(p => p.status === 'pending').length;
+    const totalValue = pagamentos
+      .filter(p => p.status === 'approved')
+      .reduce((sum, p) => sum + (p.transaction_amount || 0), 0);
+    
+    return { approved, rejected, pending, totalValue };
+  };
+
+  const stats = getPaymentStats();
 
   if (!isLoggedIn) {
     return (
@@ -336,6 +366,106 @@ const Admin = () => {
               </TabsContent>
 
               <TabsContent value="pagamentos" className="mt-6">
+                {/* Dashboard de Estatísticas */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                  <Card>
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-sm font-medium text-gray-600">Vendas Aprovadas</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-3xl font-bold text-green-600">{stats.approved}</div>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card>
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-sm font-medium text-gray-600">Vendas Rejeitadas</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-3xl font-bold text-red-600">{stats.rejected}</div>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card>
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-sm font-medium text-gray-600">Pendentes</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-3xl font-bold text-yellow-600">{stats.pending}</div>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card>
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-sm font-medium text-gray-600">Total Aprovado</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-3xl font-bold text-asgard-orange">R$ {stats.totalValue.toFixed(2)}</div>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Filtros de Data */}
+                <div className="flex gap-4 mb-6 flex-wrap">
+                  <div className="flex flex-col gap-2">
+                    <Label>Data Inicial</Label>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="outline"
+                          className="w-[200px] justify-start text-left font-normal"
+                        >
+                          <CalendarIcon className="mr-2 h-4 w-4" />
+                          {startDate ? format(startDate, "dd/MM/yyyy") : "Selecione"}
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={startDate}
+                          onSelect={setStartDate}
+                          initialFocus
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                    <Label>Data Final</Label>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="outline"
+                          className="w-[200px] justify-start text-left font-normal"
+                        >
+                          <CalendarIcon className="mr-2 h-4 w-4" />
+                          {endDate ? format(endDate, "dd/MM/yyyy") : "Selecione"}
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={endDate}
+                          onSelect={setEndDate}
+                          initialFocus
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </div>
+
+                  <div className="flex items-end">
+                    <Button
+                      variant="outline"
+                      onClick={() => {
+                        setStartDate(undefined);
+                        setEndDate(undefined);
+                      }}
+                    >
+                      Limpar Filtros
+                    </Button>
+                  </div>
+                </div>
+
                 <div className="overflow-x-auto">
                   <Table>
                     <TableHeader>
