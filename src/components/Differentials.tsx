@@ -17,7 +17,7 @@ const Differentials = () => {
     {
       icon: communityIcon,
       title: "Comunidade Ativa", 
-      description: "Mais de 5.000 jogadores conectados diariamente em eventos, competições e aventuras épicas."
+      description: "Mais de 100 jogadores conectados diariamente em eventos, competições e aventuras épicas."
     }
   ];
 
@@ -65,7 +65,7 @@ const Differentials = () => {
         {/* Stats section */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div className="group bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
-            <div className="text-4xl font-black text-asgard-yellow group-hover:text-asgard-orange transition-colors duration-300">5K+</div>
+            <div className="text-4xl font-black text-asgard-yellow group-hover:text-asgard-orange transition-colors duration-300">100+</div>
             <div className="text-gray-500">Jogadores Ativos</div>
           </div>
           <div className="group bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
@@ -77,7 +77,7 @@ const Differentials = () => {
             <div className="text-gray-500">Suporte</div>
           </div>
           <div className="group bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
-            <div className="text-4xl font-black text-asgard-yellow group-hover:text-asgard-orange transition-colors duration-300">3+</div>
+            <div className="text-4xl font-black text-asgard-yellow group-hover:text-asgard-orange transition-colors duration-300">1+</div>
             <div className="text-gray-500">Anos Online</div>
           </div>
         </div>
