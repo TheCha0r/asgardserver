@@ -34,6 +34,7 @@ const HeroSection = () => {
             variant="hero" 
             size="xl"
             className="animate-float shadow-2xl shadow-asgard-red/30"
+            onClick={() => window.open('https://discord.gg/x4HTJEsp', '_blank')}
           >
             🎮 Quero jogar agora!
           </Button>
@@ -45,7 +46,7 @@ const HeroSection = () => {
             </div>
             <div className="flex items-center gap-2">
               <span className="text-asgard-orange">🎯</span>
-              <span>Versão: 1.20.x</span>
+              <span>Versão: 1.8/1.21.x</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-asgard-red">⚔️</span>

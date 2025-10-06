@@ -42,7 +42,7 @@ const FinalCall = () => {
             <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 border-2 border-asgard-orange/50 hover-scale shadow-lg">
               <div className="text-3xl mb-2">⚡</div>
               <div className="text-asgard-orange font-bold text-lg">Versão</div>
-              <div className="text-gray-800 text-xl font-mono">1.20.x</div>
+              <div className="text-gray-800 text-xl font-mono">1.8/1.21.x</div>
             </div>
             
             <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 border-2 border-asgard-red/50 hover-scale shadow-lg">
@@ -58,6 +58,7 @@ const FinalCall = () => {
               variant="hero" 
               size="xl"
               className="text-xl px-12 py-4 animate-float shadow-2xl shadow-asgard-red/40"
+              onClick={() => window.open('https://discord.gg/x4HTJEsp', '_blank')}
             >
               ⚔️ ENTRAR NO ASGARD AGORA!
             </Button>

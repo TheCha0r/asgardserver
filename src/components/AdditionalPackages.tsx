@@ -6,36 +6,36 @@ const AdditionalPackages = () => {
     {
       name: "PACOTE INICIANTE",
       price: "R$ 5,00",
-      coins: "10 moedas",
+      coins: "5 moedas",
       description: "Perfeito para começar no servidor",
-      features: ["10 Moedas ASGARD", "Ideal para iniciantes", "Compre itens básicos"],
+      features: ["5 Moedas ASGARD"],
       link: "https://mpago.la/1sFKDjw",
       icon: "🪙"
     },
     {
       name: "PACOTE AVENTUREIRO", 
       price: "R$ 10,00",
-      coins: "20 moedas",
+      coins: "10 moedas",
       description: "Para aventureiros experientes",
-      features: ["20 Moedas ASGARD", "Valor popular", "Itens intermediários"],
+      features: ["10 Moedas ASGARD"],
       link: "https://mpago.la/2A2VCap",
       icon: "🪙"
     },
     {
       name: "PACOTE LENDA",
       price: "R$ 15,00", 
-      coins: "35 moedas",
+      coins: "15 moedas",
       description: "Pacote com melhor custo-benefício",
-      features: ["35 Moedas ASGARD", "Bonus de 5 moedas", "Itens avançados"],
+      features: ["15 Moedas ASGARD"],
       link: "https://mpago.la/1aWbDJA",
       icon: "🪙"
     },
     {
       name: "PACOTE DIVINO",
       price: "R$ 20,00",
-      coins: "50 moedas",
+      coins: "22 moedas",
       description: "Para os verdadeiros guerreiros",
-      features: ["50 Moedas ASGARD", "Máximo valor", "Todos os itens premium"],
+      features: ["22 Moedas ASGARD", "🎁 Bônus de 2 moedas"],
       link: "https://mpago.la/33N5zTH",
       icon: "🪙"
     },
@@ -44,7 +44,7 @@ const AdditionalPackages = () => {
       price: "R$ 5,00",
       coins: "5 Homes extras",
       description: "Aumente seu limite de casas",
-      features: ["+5 Pontos de HOME", "Mais bases para construir", "Organize melhor seu mundo"],
+      features: ["+5 Pontos de HOME"],
       link: "https://mpago.la/1pjF8n7",
       icon: "🏠"
     },

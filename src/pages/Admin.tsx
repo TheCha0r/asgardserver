@@ -211,7 +211,7 @@ const Admin = () => {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="admin@asgard.com"
+                  placeholder="usuario administrativo"
                   required
                 />
               </div>
