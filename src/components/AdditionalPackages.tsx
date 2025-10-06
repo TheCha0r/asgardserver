@@ -5,37 +5,37 @@ const AdditionalPackages = () => {
   const packages = [
     {
       name: "PACOTE INICIANTE",
-      price: "R$ 5,00",
-      coins: "5 moedas",
+      price: "R$ 10,00",
+      coins: "10 moedas",
       description: "Perfeito para começar no servidor",
-      features: ["5 Moedas ASGARD"],
+      features: ["10 Moedas ASGARD"],
       link: "https://mpago.la/1sFKDjw",
       icon: "🪙"
     },
     {
       name: "PACOTE AVENTUREIRO", 
-      price: "R$ 10,00",
-      coins: "10 moedas",
+      price: "R$ 20,00",
+      coins: "20 moedas",
       description: "Para aventureiros experientes",
-      features: ["10 Moedas ASGARD"],
+      features: ["20 Moedas ASGARD"],
       link: "https://mpago.la/2A2VCap",
       icon: "🪙"
     },
     {
       name: "PACOTE LENDA",
-      price: "R$ 15,00", 
-      coins: "15 moedas",
+      price: "R$ 35,00", 
+      coins: "35 moedas",
       description: "Pacote com melhor custo-benefício",
-      features: ["15 Moedas ASGARD"],
+      features: ["35 Moedas ASGARD"],
       link: "https://mpago.la/1aWbDJA",
       icon: "🪙"
     },
     {
       name: "PACOTE DIVINO",
-      price: "R$ 20,00",
-      coins: "22 moedas",
+      price: "R$ 50,00",
+      coins: "50 moedas",
       description: "Para os verdadeiros guerreiros",
-      features: ["22 Moedas ASGARD", "🎁 Bônus de 2 moedas"],
+      features: ["50 Moedas ASGARD"],
       link: "https://mpago.la/33N5zTH",
       icon: "🪙"
     },
