@@ -46,7 +46,7 @@ serve(async (req) => {
       // Salvar informações do pagamento no banco
       const { error } = await supabase
         .from('pagamentos_mercadopago')
-        .insert({
+        .upsert({
           payment_id: paymentId.toString(),
           status: paymentData.status,
           status_detail: paymentData.status_detail,
@@ -54,6 +54,8 @@ serve(async (req) => {
           external_reference: paymentData.external_reference,
           payer_email: paymentData.payer?.email,
           payment_data: paymentData
+        }, {
+          onConflict: 'payment_id'
         });
 
       if (error) {
