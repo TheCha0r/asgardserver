@@ -1,51 +1,52 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import MercadoPagoPayment from "./MercadoPagoPayment";
 
 const AdditionalPackages = () => {
   const packages = [
     {
       name: "PACOTE INICIANTE",
       price: "R$ 10,00",
+      priceValue: 10.00,
       coins: "10 moedas",
       description: "Perfeito para começar no servidor",
       features: ["10 Moedas ASGARD"],
-      link: "https://mpago.la/1sFKDjw",
       icon: "🪙"
     },
     {
       name: "PACOTE AVENTUREIRO", 
       price: "R$ 20,00",
+      priceValue: 20.00,
       coins: "20 moedas",
       description: "Para aventureiros experientes",
       features: ["20 Moedas ASGARD"],
-      link: "https://mpago.la/2A2VCap",
       icon: "🪙"
     },
     {
       name: "PACOTE LENDA",
-      price: "R$ 35,00", 
+      price: "R$ 35,00",
+      priceValue: 35.00,
       coins: "35 moedas",
       description: "Pacote com melhor custo-benefício",
       features: ["35 Moedas ASGARD"],
-      link: "https://mpago.la/1aWbDJA",
       icon: "🪙"
     },
     {
       name: "PACOTE DIVINO",
       price: "R$ 50,00",
+      priceValue: 50.00,
       coins: "50 moedas",
       description: "Para os verdadeiros guerreiros",
       features: ["50 Moedas ASGARD"],
-      link: "https://mpago.la/33N5zTH",
       icon: "🪙"
     },
     {
       name: "+5 HOMES",
       price: "R$ 5,00",
+      priceValue: 5.00,
       coins: "5 Homes extras",
       description: "Aumente seu limite de casas",
       features: ["+5 Pontos de HOME"],
-      link: "https://mpago.la/1pjF8n7",
       icon: "🏠"
     },
   ];
@@ -96,13 +97,14 @@ const AdditionalPackages = () => {
               </CardContent>
 
               <CardFooter className="relative">
-                <Button 
-                  variant="asgard" 
-                  className="w-full group-hover:shadow-asgard-yellow/30 transition-all duration-300"
-                  onClick={() => window.open(pkg.link, '_blank')}
-                >
-                  Comprar Agora
-                </Button>
+                <MercadoPagoPayment title={pkg.name} price={pkg.priceValue}>
+                  <Button 
+                    variant="asgard" 
+                    className="w-full group-hover:shadow-asgard-yellow/30 transition-all duration-300"
+                  >
+                    Comprar Agora
+                  </Button>
+                </MercadoPagoPayment>
               </CardFooter>
             </Card>
           ))}
