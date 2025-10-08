@@ -29,6 +29,16 @@ jobs:
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
       
+      - name: Verify .htaccess in build
+        run: |
+          if [ -f "dist/.htaccess" ]; then
+            echo "✅ .htaccess encontrado na build"
+            ls -la dist/.htaccess
+          else
+            echo "❌ .htaccess NÃO encontrado na build"
+            exit 1
+          fi
+      
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
