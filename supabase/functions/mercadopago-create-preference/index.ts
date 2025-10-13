@@ -66,36 +66,8 @@ serve(async (req) => {
 
     console.log('Mercado Pago preference created:', data.id);
 
-    // Criar cliente Supabase e inserir registro pendente
-    const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
-    const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
-    const supabase = createClient(supabaseUrl, supabaseKey);
-
-    // Inserir registro pendente com as informações do formulário
-    const { error: dbError } = await supabase
-      .from('pagamentos_mercadopago')
-      .insert({
-        payment_id: data.id,
-        status: 'pending',
-        status_detail: 'waiting_payment',
-        transaction_amount: parseFloat(price),
-        external_reference: usuario,
-        payer_email: email,
-        payment_data: {
-          preference_id: data.id,
-          nome: nome,
-          usuario: usuario,
-          title: title,
-          created_at: new Date().toISOString()
-        }
-      });
-
-    if (dbError) {
-      console.error('Error saving pending payment to database:', dbError);
-      // Não falhar a requisição, apenas logar o erro
-    } else {
-      console.log('Pending payment saved to database');
-    }
+    // O webhook do Mercado Pago vai criar o registro quando o pagamento for processado
+    console.log('Payment preference created, waiting for webhook notification');
 
     return new Response(
       JSON.stringify({ 
