@@ -22,13 +22,13 @@ const Differentials = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gray-50">
+    <section className="py-20 px-4 bg-muted/30">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-asgard-red via-asgard-orange to-asgard-yellow mb-4">
             Por que escolher Asgard?
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Descubra os diferenciais que fazem do Asgard o melhor servidor de Minecraft
           </p>
         </div>
@@ -38,7 +38,7 @@ const Differentials = () => {
             <div key={feature.title} className="text-center group hover-scale">
               {/* Icon Container */}
               <div className="relative mb-8">
-                <div className="w-24 h-24 mx-auto bg-gradient-to-br from-asgard-yellow/10 to-asgard-red/10 rounded-2xl flex items-center justify-center group-hover:shadow-2xl group-hover:shadow-asgard-orange/30 transition-all duration-300 border-2 border-gray-200 group-hover:border-asgard-yellow/50">
+                <div className="w-24 h-24 mx-auto bg-gradient-to-br from-asgard-yellow/10 to-asgard-red/10 rounded-2xl flex items-center justify-center group-hover:shadow-2xl group-hover:shadow-asgard-orange/30 transition-all duration-300 border-2 border-border group-hover:border-asgard-yellow/50">
                   <img 
                     src={feature.icon} 
                     alt={feature.title}
@@ -55,7 +55,7 @@ const Differentials = () => {
                 {feature.title}
               </h3>
               
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 {feature.description}
               </p>
             </div>
@@ -64,21 +64,21 @@ const Differentials = () => {
 
         {/* Stats section */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div className="group bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
+          <div className="group bg-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-border">
             <div className="text-4xl font-black text-asgard-yellow group-hover:text-asgard-orange transition-colors duration-300">100+</div>
-            <div className="text-gray-500">Jogadores Ativos</div>
+            <div className="text-muted-foreground">Jogadores Ativos</div>
           </div>
-          <div className="group bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
+          <div className="group bg-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-border">
             <div className="text-4xl font-black text-asgard-orange group-hover:text-asgard-red transition-colors duration-300">99.9%</div>
-            <div className="text-gray-500">Uptime</div>
+            <div className="text-muted-foreground">Uptime</div>
           </div>
-          <div className="group bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
+          <div className="group bg-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-border">
             <div className="text-4xl font-black text-asgard-red group-hover:text-asgard-yellow transition-colors duration-300">24/7</div>
-            <div className="text-gray-500">Suporte</div>
+            <div className="text-muted-foreground">Suporte</div>
           </div>
-          <div className="group bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
+          <div className="group bg-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-border">
             <div className="text-4xl font-black text-asgard-yellow group-hover:text-asgard-orange transition-colors duration-300">1+</div>
-            <div className="text-gray-500">Anos Online</div>
+            <div className="text-muted-foreground">Anos Online</div>
           </div>
         </div>
       </div>

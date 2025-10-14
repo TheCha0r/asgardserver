@@ -4,7 +4,7 @@ import heroImage from "@/assets/hero-asgard.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 px-4 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center pt-20 px-4 bg-background relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-asgard-yellow/5 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-asgard-orange/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -21,12 +21,12 @@ const HeroSection = () => {
             <h1 className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-asgard-yellow via-asgard-orange to-asgard-red">
               ASGARD
             </h1>
-            <p className="text-2xl md:text-3xl font-bold text-gray-800">
+            <p className="text-2xl md:text-3xl font-bold text-foreground">
               O Reino dos Guerreiros
             </p>
           </div>
           
-          <p className="text-lg text-gray-600 max-w-xl">
+          <p className="text-lg text-muted-foreground max-w-xl">
             Entre no servidor mais épico de Minecraft! Aventuras infinitas, comunidade ativa e a melhor experiência PVP te aguardam no reino de Asgard.
           </p>
           
@@ -39,7 +39,7 @@ const HeroSection = () => {
             🎮 Quero jogar agora!
           </Button>
           
-            <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-700 font-semibold">
+            <div className="flex flex-col sm:flex-row gap-4 text-sm text-foreground font-semibold">
             <div className="flex items-center gap-2">
               <span className="text-asgard-yellow">📍</span>
               <span>IP: asgard.magnohost.com</span>

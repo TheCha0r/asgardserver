@@ -22,33 +22,33 @@ const FinalCall = () => {
             Pronto para a batalha?
           </h2>
           
-          <p className="text-2xl md:text-3xl text-gray-800 font-bold">
+          <p className="text-2xl md:text-3xl text-foreground font-bold">
             Junte-se aos milhares de guerreiros no reino de Asgard
           </p>
           
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Aventuras épicas, batalhas legendárias e uma comunidade incrível te esperam. 
             Não perca mais tempo - sua jornada heroica começa agora!
           </p>
 
           {/* Server Info Cards */}
           <div className="grid md:grid-cols-3 gap-6 mt-12 mb-8">
-            <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 border-2 border-asgard-yellow/50 hover-scale shadow-lg">
+            <div className="bg-card/90 backdrop-blur-sm rounded-xl p-6 border-2 border-asgard-yellow/50 hover-scale shadow-lg">
               <div className="text-3xl mb-2">🎯</div>
               <div className="text-asgard-orange font-bold text-lg">IP do Servidor</div>
-              <div className="text-gray-800 text-xl font-mono">asgard.magnohost.com</div>
+              <div className="text-foreground text-xl font-mono">asgard.magnohost.com</div>
             </div>
             
-            <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 border-2 border-asgard-orange/50 hover-scale shadow-lg">
+            <div className="bg-card/90 backdrop-blur-sm rounded-xl p-6 border-2 border-asgard-orange/50 hover-scale shadow-lg">
               <div className="text-3xl mb-2">⚡</div>
               <div className="text-asgard-orange font-bold text-lg">Versão</div>
-              <div className="text-gray-800 text-xl font-mono">1.8/1.21.x</div>
+              <div className="text-foreground text-xl font-mono">1.8/1.21.x</div>
             </div>
             
-            <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 border-2 border-asgard-red/50 hover-scale shadow-lg">
+            <div className="bg-card/90 backdrop-blur-sm rounded-xl p-6 border-2 border-asgard-red/50 hover-scale shadow-lg">
               <div className="text-3xl mb-2">⚔️</div>
               <div className="text-asgard-red font-bold text-lg">Modo</div>
-              <div className="text-gray-800 text-xl font-mono">Survival PVP</div>
+              <div className="text-foreground text-xl font-mono">Survival PVP</div>
             </div>
           </div>
 
@@ -63,24 +63,24 @@ const FinalCall = () => {
               ⚔️ ENTRAR NO ASGARD AGORA!
             </Button>
             
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-muted-foreground">
               ✨ Mais de 100 jogadores online • 🏆 Eventos diários • 🛡️ Servidor protegido
             </p>
           </div>
 
           {/* Social proof */}
           <div className="mt-12 flex flex-wrap justify-center items-center gap-8 text-asgard-orange">
-            <div className="flex items-center gap-2 bg-white/90 p-3 rounded-lg shadow-md border border-asgard-yellow/30">
+            <div className="flex items-center gap-2 bg-card/90 p-3 rounded-lg shadow-md border border-asgard-yellow/30">
               <span className="text-2xl">👥</span>
-              <span className="font-semibold text-gray-800">+100 Jogadores</span>
+              <span className="font-semibold text-foreground">+100 Jogadores</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/90 p-3 rounded-lg shadow-md border border-asgard-orange/30">
+            <div className="flex items-center gap-2 bg-card/90 p-3 rounded-lg shadow-md border border-asgard-orange/30">
               <span className="text-2xl">⭐</span>
-              <span className="font-semibold text-gray-800">4.9/5 Avaliação</span>
+              <span className="font-semibold text-foreground">4.9/5 Avaliação</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/90 p-3 rounded-lg shadow-md border border-asgard-red/30">
+            <div className="flex items-center gap-2 bg-card/90 p-3 rounded-lg shadow-md border border-asgard-red/30">
               <span className="text-2xl">🏆</span>
-              <span className="font-semibold text-gray-800">Melhor Servidor BR</span>
+              <span className="font-semibold text-foreground">Melhor Servidor BR</span>
             </div>
           </div>
         </div>
