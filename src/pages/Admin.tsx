@@ -179,6 +179,34 @@ const Admin = () => {
     }
   };
 
+  const deletePagamento = async (id: string) => {
+    if (!confirm('Tem certeza que deseja apagar este pagamento?')) {
+      return;
+    }
+
+    try {
+      const { error } = await supabase
+        .from('pagamentos_mercadopago')
+        .delete()
+        .eq('id', id);
+
+      if (error) throw error;
+
+      toast({
+        title: "Pagamento apagado!",
+        description: "O registro foi removido com sucesso."
+      });
+
+      fetchPagamentos();
+    } catch (error) {
+      toast({
+        title: "Erro",
+        description: "Erro ao apagar pagamento.",
+        variant: "destructive"
+      });
+    }
+  };
+
   const downloadComprovante = async (url: string, nome: string) => {
     try {
       const { data, error } = await supabase.storage
@@ -322,7 +350,13 @@ const Admin = () => {
                           <TableCell>{comprovante.whatsapp}</TableCell>
                           <TableCell>{getStatusBadge(comprovante.status)}</TableCell>
                           <TableCell>
-                            {new Date(comprovante.created_at).toLocaleDateString('pt-BR')}
+                            {new Date(comprovante.created_at).toLocaleString('pt-BR', {
+                              day: '2-digit',
+                              month: '2-digit',
+                              year: 'numeric',
+                              hour: '2-digit',
+                              minute: '2-digit'
+                            })}
                           </TableCell>
                           <TableCell>
                             <div className="flex gap-2 flex-wrap">
@@ -476,6 +510,7 @@ const Admin = () => {
                         <TableHead>Valor</TableHead>
                         <TableHead>Status</TableHead>
                         <TableHead>Data</TableHead>
+                        <TableHead>Ações</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -506,6 +541,15 @@ const Admin = () => {
                               hour: '2-digit',
                               minute: '2-digit'
                             })}
+                          </TableCell>
+                          <TableCell>
+                            <Button
+                              size="sm"
+                              variant="destructive"
+                              onClick={() => deletePagamento(pagamento.id)}
+                            >
+                              Apagar
+                            </Button>
                           </TableCell>
                         </TableRow>
                       ))}
