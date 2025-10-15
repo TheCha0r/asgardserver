@@ -11,7 +11,7 @@ const AdditionalPackages = () => {
       coins: "10 moedas",
       description: "Perfeito para começar no servidor",
       features: ["10 Moedas ASGARD"],
-      icon: "🪙"
+      icon: "⚜︎"
     },
     {
       name: "PACOTE AVENTUREIRO", 
@@ -20,7 +20,7 @@ const AdditionalPackages = () => {
       coins: "20 moedas",
       description: "Para aventureiros experientes",
       features: ["20 Moedas ASGARD"],
-      icon: "🪙"
+      icon: "☸︎"
     },
     {
       name: "PACOTE LENDA",
@@ -29,7 +29,7 @@ const AdditionalPackages = () => {
       coins: "35 moedas",
       description: "Pacote com melhor custo-benefício",
       features: ["35 Moedas ASGARD"],
-      icon: "🪙"
+      icon: "⚕︎"
     },
     {
       name: "PACOTE DIVINO",
@@ -38,7 +38,7 @@ const AdditionalPackages = () => {
       coins: "50 moedas",
       description: "Para os verdadeiros guerreiros",
       features: ["50 Moedas ASGARD"],
-      icon: "🪙"
+      icon: "✴︎"
     },
     {
       name: "+5 HOMES",
