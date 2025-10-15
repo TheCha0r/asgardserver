@@ -21,20 +21,20 @@ const TeamSection = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-white">
+    <section className="py-20 px-4 bg-muted/30">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-asgard-yellow via-asgard-red to-asgard-orange mb-4">
             Nossa Equipe
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-muted-foreground">
             Conheça os guardiões do reino de Asgard
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
           {teamMembers.map((member) => (
-            <Card key={member.name} className="bg-white shadow-lg border-2 border-gray-200 hover-scale text-center group overflow-hidden relative hover:bg-asgard-orange hover:border-asgard-orange transition-all duration-300">
+            <Card key={member.name} className="bg-card shadow-lg border-2 hover-scale text-center group overflow-hidden relative hover:bg-asgard-orange hover:border-asgard-orange transition-all duration-300">
               
               <CardHeader className="relative">
                 {/* Avatar - Image style */}
@@ -42,7 +42,7 @@ const TeamSection = () => {
                   <img 
                     src={member.avatar} 
                     alt={`Avatar de ${member.name}`}
-                    className="w-full h-full rounded-lg group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl border-2 border-gray-300 group-hover:border-white pixelated"
+                    className="w-full h-full rounded-lg group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl border-2 border-border group-hover:border-white pixelated"
                     style={{ imageRendering: 'pixelated' }}
                   />
                   
@@ -59,7 +59,7 @@ const TeamSection = () => {
               </CardHeader>
 
               <CardContent className="relative">
-                <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-100 transition-colors duration-300">
+                <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-gray-100 transition-colors duration-300">
                   {member.description}
                 </p>
               </CardContent>
@@ -69,19 +69,19 @@ const TeamSection = () => {
 
         {/* Team stats */}
         <div className="mt-16 text-center">
-          <p className="text-lg text-gray-600 mb-4">
+          <p className="text-lg text-muted-foreground mb-4">
             Equipe dedicada trabalhando para oferecer a melhor experiência
           </p>
           <div className="flex justify-center items-center gap-8 text-asgard-orange flex-wrap">
-            <div className="flex items-center gap-2 bg-white p-3 rounded-lg shadow-md border border-gray-200">
+            <div className="flex items-center gap-2 bg-card p-3 rounded-lg shadow-md border">
               <span className="text-2xl">🎮</span>
               <span className="font-semibold">Disponível 24/7</span>
             </div>
-            <div className="flex items-center gap-2 bg-white p-3 rounded-lg shadow-md border border-gray-200">
+            <div className="flex items-center gap-2 bg-card p-3 rounded-lg shadow-md border">
               <span className="text-2xl">💬</span>
               <span className="font-semibold">Suporte rápido</span>
             </div>
-            <div className="flex items-center gap-2 bg-white p-3 rounded-lg shadow-md border border-gray-200">
+            <div className="flex items-center gap-2 bg-card p-3 rounded-lg shadow-md border">
               <span className="text-2xl">🏆</span>
               <span className="font-semibold">Experiência comprovada</span>
             </div>
