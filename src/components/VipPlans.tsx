@@ -9,7 +9,7 @@ const VipPlans = () => {
       price: "R$ 17,90",
       priceValue: 17.90,
       color: "from-gray-400 to-gray-600",
-      emoji: "⚒️",
+      icon: "shieldIcon",
       benefits: [
         "XP extra em Agricultura 🌱",
         "Maior chance de Crítico ⚔️",
