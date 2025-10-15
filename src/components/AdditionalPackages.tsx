@@ -52,20 +52,20 @@ const AdditionalPackages = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-white">
+    <section className="py-20 px-4 bg-background">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-asgard-orange via-asgard-red to-asgard-yellow mb-4">
             PACOTES DE MOEDAS
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-muted-foreground">
             Adquira moedas para comprar itens especiais no servidor
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {packages.map((pkg) => (
-            <Card key={pkg.name} className="bg-white shadow-lg border border-gray-200 hover-scale relative overflow-hidden group hover:border-asgard-orange/50 hover:shadow-xl transition-all duration-300">
+            <Card key={pkg.name} className="bg-card shadow-lg hover-scale relative overflow-hidden group hover:border-asgard-orange/50 hover:shadow-xl transition-all duration-300">
               {/* Icon */}
               <div className="absolute top-4 right-4 text-3xl">
                 {pkg.icon}
@@ -76,9 +76,9 @@ const AdditionalPackages = () => {
 
               <CardHeader className="relative">
                 <CardTitle className="text-xl font-bold text-asgard-orange">{pkg.name}</CardTitle>
-                <CardDescription className="text-gray-600">{pkg.description}</CardDescription>
+                <CardDescription className="text-muted-foreground">{pkg.description}</CardDescription>
                 <div className="space-y-1">
-                  <div className="text-2xl font-black text-gray-800">
+                  <div className="text-2xl font-black text-foreground">
                     {pkg.price}
                   </div>
                   <div className="text-lg font-semibold text-asgard-yellow">
@@ -89,7 +89,7 @@ const AdditionalPackages = () => {
 
               <CardContent className="space-y-2 relative">
                 {pkg.features.map((feature) => (
-                  <div key={feature} className="flex items-center text-gray-700 text-sm">
+                  <div key={feature} className="flex items-center text-foreground text-sm">
                     <span className="text-asgard-yellow mr-2">✓</span>
                     {feature}
                   </div>

@@ -68,37 +68,37 @@ const VipPlans = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-20 px-4 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-asgard-yellow via-asgard-orange to-asgard-red mb-4">
             🌟 Pacotes VIP Asgard
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-muted-foreground">
             Escolha seu plano e domine o reino de Asgard
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {plans.map((plan, index) => (
-            <Card key={plan.name} className="bg-white shadow-xl border-2 border-gray-200 hover-scale relative overflow-hidden group hover:border-asgard-yellow/50 transition-all duration-300">
+            <Card key={plan.name} className="bg-card shadow-xl border-2 hover-scale relative overflow-hidden group hover:border-asgard-yellow/50 transition-all duration-300">
               <div className={`absolute inset-0 bg-gradient-to-br ${plan.color} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}></div>
               
               <CardHeader className="text-center relative">
                 <div className="text-4xl mb-2">{plan.emoji}</div>
                 <CardTitle className="text-2xl font-bold text-asgard-orange">{plan.name}</CardTitle>
-                <CardDescription className="text-3xl font-black text-gray-800">
+                <CardDescription className="text-3xl font-black text-foreground">
                   {plan.price}
-                  <span className="text-sm text-gray-500">/mês</span>
+                  <span className="text-sm text-muted-foreground">/mês</span>
                 </CardDescription>
               </CardHeader>
 
               <CardContent className="space-y-3 relative">
-                <p className="text-sm text-gray-600 italic mb-4 border-l-4 border-asgard-yellow pl-3">
+                <p className="text-sm text-muted-foreground italic mb-4 border-l-4 border-asgard-yellow pl-3">
                   💡 {plan.description}
                 </p>
                 {plan.benefits.map((benefit) => (
-                  <div key={benefit} className="flex items-start text-gray-700 text-sm">
+                  <div key={benefit} className="flex items-start text-foreground text-sm">
                     <span className="text-asgard-yellow mr-2 text-lg">✓</span>
                     <span>{benefit}</span>
                   </div>
