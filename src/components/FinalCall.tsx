@@ -58,7 +58,7 @@ const FinalCall = () => {
               variant="hero" 
               size="xl"
               className="text-xl px-12 py-4 animate-float shadow-2xl shadow-asgard-red/40"
-              onClick={() => window.open('https://discord.gg/x4HTJEsp', '_blank')}
+              onClick={() => window.open('https://discord.gg/3NyM955nVz', '_blank')}
             >
               ⚔️ ENTRAR NO ASGARD AGORA!
             </Button>
