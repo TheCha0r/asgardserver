@@ -10,7 +10,7 @@ const AdditionalPackages = () => {
       priceValue: 10.00,
       coins: "10 moedas",
       description: "Perfeito para começar no servidor",
-      features: ["10 Moedas ASGARD"],
+      features: ["10 Moedas ASGARD + 2 Moedas Extras"],
       icon: "⚜︎"
     },
     {
@@ -19,7 +19,7 @@ const AdditionalPackages = () => {
       priceValue: 20.00,
       coins: "20 moedas",
       description: "Para aventureiros experientes",
-      features: ["20 Moedas ASGARD"],
+      features: ["20 Moedas ASGARD + 5 Moedas Extras"],
       icon: "☸︎"
     },
     {
@@ -28,7 +28,7 @@ const AdditionalPackages = () => {
       priceValue: 35.00,
       coins: "35 moedas",
       description: "Pacote com melhor custo-benefício",
-      features: ["35 Moedas ASGARD"],
+      features: ["35 Moedas ASGARD + 10 Moedas Extras"],
       icon: "⚕︎"
     },
     {
@@ -37,7 +37,7 @@ const AdditionalPackages = () => {
       priceValue: 50.00,
       coins: "50 moedas",
       description: "Para os verdadeiros guerreiros",
-      features: ["50 Moedas ASGARD"],
+      features: ["50 Moedas ASGARD + 15 Moedas Extras"],
       icon: "✴︎"
     },
     {
@@ -46,7 +46,7 @@ const AdditionalPackages = () => {
       priceValue: 5.00,
       coins: "5 Homes extras",
       description: "Aumente seu limite de casas",
-      features: ["+5 Pontos de HOME"],
+      features: ["+5 Homes Extras"],
       icon: "🏠"
     },
   ];
