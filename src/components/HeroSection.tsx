@@ -34,7 +34,7 @@ const HeroSection = () => {
             variant="hero" 
             size="xl"
             className="animate-float shadow-2xl shadow-asgard-red/30"
-            onClick={() => window.open('https://discord.gg/x4HTJEsp', '_blank')}
+            onClick={() => window.open('https://discord.com/invite/3NyM955nVz', '_blank')}
           >
             🎮 Quero jogar agora!
           </Button>
